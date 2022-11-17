@@ -6,12 +6,15 @@ const allBtns = document.querySelectorAll("[data-time]");
 function handleTwentySec(e) {
   const btnClicked = e.target;
   const btnClickedData = btnClicked.dataset.time;
+  console.log(btnClickedData);
 
- document.querySelector('.display__time-left').textContent = btnClickedData;
- console.log(btnClickedData);
- let date = new Date(null);
- date.setSeconds(seconds);
 
+  let date = new Date(null);
+  date.setSeconds(btnClickedData);
+  let hhmmssFormat = date.toISOString().substr(11,8);
+  console.log(hhmmssFormat);
+  document.querySelector('.display__time-left').textContent = hhmmssFormat;
+  
 }
 
 
